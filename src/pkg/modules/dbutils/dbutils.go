@@ -249,3 +249,43 @@ func GetQuestionCorrectAnswer(id int) string{
 	}
 	return answers.Question_answer
 }
+
+func AddQuestionAnswers(question string, difficulty string, theme string, answers []string, correctAnswer string){
+	//Insert new Question
+	cmd := `
+		INSERT INTO questions 
+		(question, difficulty, theme, remanence) 
+		VALUES (?, ?, ?, 1);
+	`
+
+	_, err := db.Exec(cmd, question, difficulty, theme)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// Last ID created is the reference ID
+	cmd = "SET @question_id = LAST_INSERT_ID();"
+	_, err = db.Exec(cmd)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	var validAnswer string
+	for _, answer := range answers{
+		if correctAnswer != answer{
+			validAnswer = "Faux"
+		} else{
+			validAnswer = "Vrai"
+		}
+		cmd := `
+			INSERT INTO answers 
+			(questionid, question_answer, Valid) 
+			VAlUES (@question_id, ?, ?);
+		`
+
+		_, err := db.Exec(cmd, answer, validAnswer)
+		if err != nil {
+			log.Fatal(err)
+		}
+	}
+}
