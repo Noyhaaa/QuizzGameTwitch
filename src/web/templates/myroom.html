@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ma Salle</title>
+    <link rel="stylesheet" href="../static/css/myroom.css">
+</head>
+<body>
+    <header>
+        <h1>Ma Salle de Jeu</h1>
+    </header>
+
+    <main>
+        <section class="room-info">
+            <h2>Informations sur la Salle</h2>
+            <p>Nom de la salle : <strong>Ma Salle</strong></p>
+            <p>Nombre de joueurs : <strong>4</strong></p>
+            <p>Thème : <strong>Général</strong></p>
+        </section>
+
+        <section class="start-game">
+            <button id="start-game-button">Commencer la Partie</button>
+        </section>
+
+        <script>
+            // Select button by ID
+            const startGameButton = document.getElementById('start-game-button');
+
+            startGameButton.addEventListener('click', function() {
+                // Redirect user into myroom
+                window.location.href = 'game'; 
+            });
+        </script>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Ma Salle de Jeu. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>

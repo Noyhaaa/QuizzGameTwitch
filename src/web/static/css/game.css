@@ -1,0 +1,55 @@
+/* Styles pour centrer la page */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Styles pour la question */
+.question {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Styles pour les réponses */
+.answers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.valid-answer {
+    margin-top: 60px;
+}
+
+#textField{
+    margin-top: 60px;
+}
+
+#valid-answer-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#answer:hover {
+    background-color: #661a1a50;
+}
+
+div[id^="answer"] {
+    width: 200px;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+    background-color: #f7f7f7;
+    cursor: pointer;
+}

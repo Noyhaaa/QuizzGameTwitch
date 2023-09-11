@@ -1,0 +1,73 @@
+/* Réinitialisation des marges et des rembourrages pour le corps de la page */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+}
+
+/* Styles pour l'en-tête */
+header {
+    text-align: center;
+    background-color: #007bff;
+    color: #fff;
+    padding: 40px 0;
+}
+
+header h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 18px;
+}
+
+/* Styles pour le contenu principal */
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.game-info, .join-game {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.game-info h2, .join-game h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#create-room-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#create-room-button:hover {
+    background-color: #0056b3;
+}
+
+
+/* Styles pour le pied de page */
+footer {
+    text-align: center;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 0;
+}
+
+/* Lien pour mettre en forme le texte spécial */
+strong {
+    color: #007bff;
+    font-weight: bold;
+}
