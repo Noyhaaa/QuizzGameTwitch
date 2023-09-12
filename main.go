@@ -19,6 +19,8 @@ func main(){
 	router.GET("/myroom", quizzapi.MyRoomPage)
 
 	router.GET("/game", quizzapi.StartGame)
+	router.GET("/next-question", quizzapi.NextQuestion)
+
 
 	// Start web server on port 8080
     router.Run(":8080")

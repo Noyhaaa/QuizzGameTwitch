@@ -39,3 +39,23 @@ func StartGame(c *gin.Context) {
 		"correctAnswer": questionInfo["correct"],
 	})
 }
+
+func NextQuestion(c *gin.Context) {
+	var answers []string
+	questionInfo := dbutils.CurrentQuestionInfo()
+
+	if _, ok := questionInfo["answers"].([]string); ok{ 
+		answers = questionInfo["answers"].([]string)
+	} else {
+		fmt.Println("Can't retrieve the answers of the question")
+	}
+
+	c.JSON(http.StatusOK, gin.H{
+		"question": questionInfo["question"],
+		"answer1": answers[0],
+		"answer2": answers[1],
+		"answer3": answers[2],
+		"answer4": answers[3],
+		"correctAnswer": questionInfo["correct"],
+	})
+}

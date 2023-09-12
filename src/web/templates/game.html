@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Questionnaire</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="../static/css/game.css">
 </head>
 <body>
@@ -20,6 +21,10 @@
 
     <section class="valid-answer">
         <button id="valid-answer-button">Confirmer</button>
+    </section>
+
+    <section class="next-question">
+        <button id="next-question-button" style="display: none;">Question suivante</button>
     </section>
 
     <div id="textField" style="display: none;">
@@ -52,9 +57,38 @@
         sendAnswer.addEventListener('click', function() {
             var answer = document.getElementById('textField')
             answer.style.display = "block";
+            var next = document.getElementById('next-question-button')
+            next.style.display = "block";
         });
-        
     </script>
 
+    <script>
+        function loadNextQuestion() {
+            $.ajax({
+                url: '/next-question', 
+                method: 'GET',
+                success: function(data) {
+                    document.getElementsByClassName('question')[0].innerText = data.question;
+                    document.getElementById('answer1').innerText = data.answer1;
+                    document.getElementById('answer2').innerText = data.answer2;
+                    document.getElementById('answer3').innerText = data.answer3;
+                    document.getElementById('answer4').innerText = data.answer4;
+                    document.getElementById('textField').innerText = "La réponse de la question étais: " + data.correctAnswer;
+                },
+                error: function(error) {
+                    console.error('Issue occured while waiting for the next question :', error);
+                }
+            });
+        }
+
+        const goNext = document.getElementById('next-question-button');
+        goNext.addEventListener('click', function() {
+            loadNextQuestion();
+            // hide the field correct answer
+            $("#textField").hide()
+            $("#next-question-button").hide()
+        });
+
+    </script>
 </body>
 </html>
